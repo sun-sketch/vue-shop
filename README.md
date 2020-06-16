@@ -1,24 +1,5 @@
 # vue-shop
-
-## Project setup
-```
-npm install
+##该项目是一个电商后台管理系统
+用到的有vue、vue-router、Element-UI、axios、Echarts
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
