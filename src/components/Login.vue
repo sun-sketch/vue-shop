@@ -31,8 +31,8 @@
        return{
          //这是登录表单的数据绑定对象
          loginForm:{
-           username:'zs',
-           password:'123'
+           username:'admin',
+           password:'123456'
          },
         //这是表单的验证规则
          loginFormRules:{
@@ -58,6 +58,7 @@
            const {data:res}=await this.$http.post('login',this.loginForm);
            if(res.meta.status!==200)return this.$message.error("登录失败");
            this.$message.success("登录成功");
+           console.log();
          })
        }
      }
