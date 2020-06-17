@@ -1,5 +1,4 @@
 # vue-shop
-##����Ŀ��һ�����̺�̨����ϵͳ
-�õ�����vue��vue-router��Element-UI��axios��Echarts
+##这是一个vue商城后台管理项目，用到的有vue-router、Element-UI、axios、Echarts
 ```
-test
+
