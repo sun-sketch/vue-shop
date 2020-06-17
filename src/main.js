@@ -4,6 +4,7 @@ import router from './router'
 import './plugins/element.js'
 import './assets/css/global.css'
 import axios from 'axios'
+
 //配置请求根路径
 axios.defaults.baseURL='https://www.liulongbin.top:8888/api/private/v1/'
 //每个Vue组件可以通过this直接访问$http，从而发送ajax请求
