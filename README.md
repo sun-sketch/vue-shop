@@ -1,5 +1,5 @@
 # vue-shop
-##该项目是一个电商后台管理系统
-用到的有vue、vue-router、Element-UI、axios、Echarts
+##锟斤拷锟斤拷目锟斤拷一锟斤拷锟斤拷锟教猴拷台锟斤拷锟斤拷系统
+锟矫碉拷锟斤拷锟斤拷vue锟斤拷vue-router锟斤拷Element-UI锟斤拷axios锟斤拷Echarts
 ```
-
+test
