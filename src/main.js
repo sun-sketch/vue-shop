@@ -9,7 +9,7 @@ import axios from 'axios'
 axios.defaults.baseURL='https://www.liulongbin.top:8888/api/private/v1/'
 axios.interceptors.request.use(config=>{
   console.log(config);
-  config.header.Authorization=window.sessionStorage.getItem('token');
+  config.headers.Authorization=window.sessionStorage.getItem('token');
   return config;
 })
 //每个Vue组件可以通过this直接访问$http，从而发送ajax请求

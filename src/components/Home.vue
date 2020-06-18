@@ -12,34 +12,57 @@
       <!-- 主体 -->
       <el-container>
         <!-- 侧边栏 -->
-        <el-aside width="200px" class="el-aside">
+        <el-aside :width="isCollapse?'64px':'200px'" class="el-aside">
+          <div class="toggle-button" @click="toggleCollapse">|||
+          </div>
           <!-- 侧边栏菜单区 -->
-          <el-menu background-color="#333744" text-color="#fff" active-text-color="#ffd04b">
+          <el-menu unique-opened background-color="#333744" text-color="#fff" 
+          active-text-color="#409EFF" :collapse="isCollapse" :collapse-transition="false">
             <!-- 一级菜单 -->
-            <el-submenu index="1">
+            <el-submenu :index="item.id+''" v-for="item in menulist" :key="item.id">
               <!-- 一级菜单的模板区 -->
               <template slot="title">
                 <!-- 图标 -->
-                <i class="el-icon-location"></i>
-                <span>导航一</span>
+                <i :class="iconsObj[item.id]"></i>
+                <span>{{item.authName}}</span>
               </template>
-              <el-menu-item index="1-4-1">
-                <i class="el-icon-location"></i>
-                <span>导航一</span>
+              <el-menu-item
+                :index="subitem.id+''"
+                v-for="subitem in item.children"
+                :key="subitem.id"
+              >
+                <i class="el-icon-menu"></i>
+                <span>{{subitem.authName}}</span>
               </el-menu-item>
             </el-submenu>
           </el-menu>
         </el-aside>
         <!-- 右侧主体 -->
-        <el-main class="el-main">Main</el-main>
+        <el-main class="el-main">
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 <script>
 export default {
-  created(){
-    this.getMenuList();
+  data() {
+    // 左侧菜单数据
+    return {
+      menulist: [],
+      iconsObj: {
+        '125': 'el-icon-s-custom',
+        '103': 'el-icon-s-fold',
+        '101': 'el-icon-shopping-bag-1',
+        '102': 'el-icon-notebook-2',
+        '145': 'el-icon-data-line'
+      },
+      isCollapse:false,
+    }
+  },
+  created() {
+    this.getMenuList()
   },
   methods: {
     logout() {
@@ -47,9 +70,15 @@ export default {
       this.$router.push('/login')
     },
     // 获取所有的菜单
-    getMenuList(){
-      const{data:res}= await this.$http.get('menus')
-      console.log(res);
+    async getMenuList() {
+      const { data: res } = await this.$http.get('menus')
+      if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
+      this.menulist = res.data
+      console.log(res)
+    },
+    // 点击按钮切换菜单的折叠与展开
+    toggleCollapse(){
+      this.isCollapse=!this.isCollapse;
     }
   }
 }
@@ -86,10 +115,22 @@ export default {
 .el-aside {
   background-color: #333744;
   .el-menu {
-    border-right: solid 1px #333744;
+    border-right: none;
   }
 }
 .el-main {
   background-color: #eaedf1;
+}
+.iconfont{
+  margin-left: 10px;
+}
+.toggle-button{
+  background-color: #4a5064;
+  font-size: 10px;
+  line-height: 24px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.2em;
+  cursor: pointer;
 }
 </style>
