@@ -63,7 +63,6 @@ export default {
         const { data: res } = await this.$http.post('login', this.loginForm)
         if (res.meta.status !== 200) return this.$message.error('登录失败')
         this.$message.success('登录成功')
-        console.log('success')
         window.sessionStorage.setItem('token', res.data.token)
         //通过编程式导航跳转到后台主页，路由地址是/home
         this.$router.push('/home')
