@@ -237,7 +237,7 @@ export default {
       this.editDialogVisible=true;
       const{data:res}= await this.$http.get('users/'+id);
       if(res.meta.status!==200){
-           this.$message.error('查询信息用户失败');
+           this.$message.error('查询用户信息失败');
       }
       this.editFrom=res.data;
       this.editDialogVisible=true;
@@ -272,7 +272,6 @@ export default {
           cancelButtonText: '取消',
           type: 'warning'
         }).catch(err=>err)
-        console.log(confirmResult);
         if(confirmResult!=='confirm'){
           return this.$message.info('已取消删除');
         }
