@@ -279,7 +279,5 @@ export default {
 .el-cascader{
     width: 100%;
 }
-.el-scrollbar,.el-cascader-menu{
-    max-height: 300px!important;
-}
+
 </style>
