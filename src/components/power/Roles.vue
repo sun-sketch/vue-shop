@@ -101,7 +101,7 @@
       </span>
     </el-dialog>
     <!--修改角色 -->
-    <el-dialog title="添加角色" :visible.sync="editDialogVisible" width="50%" @close="editDialogClosed">
+    <el-dialog title="修改角色" :visible.sync="editDialogVisible" width="50%" @close="editDialogClosed">
       <!-- 内容主体区 -->
       <el-form :model="editForm" :rules="editFormRules" ref="editFormRef" label-width="90px">
         <el-form-item label="角色名称" prop="roleName">
