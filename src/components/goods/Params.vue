@@ -136,7 +136,7 @@ export default {
         return{
             catelist:[],
             //级联选择框双向绑定到的数组
-            selectedCateKeys:[],
+            selectedCateKeys:[513,526,543],
             activeName:'many',
             //动态属性的数据
             manyTableData:[],
@@ -173,7 +173,7 @@ export default {
             res.data.forEach(item=>{
               item.attr_vals=item.attr_vals?item.attr_vals.split(' '):[];
             })
-            this.catelist=res.data
+            this.catelist=res.data;
         },
         //级联选择框选中项变化，触发的函数
         handleChange(){
@@ -266,7 +266,7 @@ export default {
             }
             this.$message.success('删除参数成功');
             this.getParamsData();
-        }
+        },
     },
     computed:{
         //如过按钮需要被禁用返回true，否则返回false
