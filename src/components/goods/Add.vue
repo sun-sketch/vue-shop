@@ -201,7 +201,7 @@ export default {
         //监听图片上传成功的事件
         handleSuccess(response){
             //拼接得到一个图片信息对象
-            const picInfo={pic: response.data.tem_path}
+            const picInfo={pic: response.data.tmp_path}
             //将图片信息对象push到pics数组中
             this.addForm.pics.push(picInfo);
             console.log(this.addForm);
@@ -230,7 +230,8 @@ export default {
                     this.addForm.attrs.push(newInfo);
                 })
                 form.attrs=this.addForm.attrs;
-
+                console.log(this.addForm);
+                console.log(form);
                 //发起请求添加商品
                 //商品的名称，必须是唯一的
                 const{data:res}=await this.$http.post('goods',form);
